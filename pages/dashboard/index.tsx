@@ -1,7 +1,7 @@
 import DashboardLayout from "@/components/layouts/dashboard/dashboardLayout";
 
 function Dashboard() {
-  return <div>Enteasdfsadfr</div>;
+  return <>This is dashboard</>;
 }
 Dashboard.Layout = DashboardLayout;
 export default Dashboard;

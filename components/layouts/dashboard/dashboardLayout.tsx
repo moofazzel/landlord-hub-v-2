@@ -1,14 +1,12 @@
+import Aside from "@/components/dashboard/aside";
 import { Props } from "@/lib/types/types";
-import Link from "next/link";
 
 const DashboardLayout = ({ children }: Props) => {
   return (
     <>
-      <header>this i s header dashboard</header>
       <main className="grid grid-cols-2">
-        <aside>
-          <Link href={"/dashboard"}>dashboard</Link>
-          <Link href={"/dashboard/properties"}>properties</Link>
+        <aside className="bg-lh-main">
+          <Aside />
         </aside>
 
         <div>{children}</div>

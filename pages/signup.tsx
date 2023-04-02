@@ -33,7 +33,7 @@ function signUp() {
   };
   return (
     <>
-      <section className="container my-20">
+      <section className="lg:w-[1280px] mx-auto my-20 px-5">
         <div className="lg:flex flex-row-reverse lg:bg-[#F3F4FC] rounded-[30px]">
           <div className="flex-1 flex justify-center items-center lg:px-10">
             <Image src={signUpImage} alt="" priority />

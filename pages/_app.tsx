@@ -13,7 +13,6 @@ type AppPropsWithLayout = AppProps & {
 
 function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   const Layout = Component.Layout || MainLayout;
-
   return (
     <Layout>
       <Component {...pageProps} />

@@ -16,3 +16,8 @@ export type FormValues = {
   email: string;
   password: string | number;
 };
+
+export type navLinkProps = {
+  href: string;
+  children: React.ReactNode;
+};
