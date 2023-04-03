@@ -2,6 +2,10 @@ export type Props = {
   children: React.ReactNode;
 };
 
+export type String = {
+  className: string;
+};
+
 export type btn = {
   title: string;
   type: "button" | "submit" | "reset";

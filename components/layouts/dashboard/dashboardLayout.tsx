@@ -4,11 +4,12 @@ import { Props } from "@/lib/types/types";
 const DashboardLayout = ({ children }: Props) => {
   return (
     <>
-      <main className="grid grid-cols-2">
-        <aside className="bg-lh-main">
-          <Aside />
-        </aside>
+      <main className="flex">
+        {/* Side bar */}
 
+        <Aside />
+
+        {/* All dashboard page goes here */}
         <div>{children}</div>
       </main>
     </>

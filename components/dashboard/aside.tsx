@@ -1,28 +1,67 @@
 import Image from "next/image";
 import NavLink from "../common/NavLink";
 import logoWhite from "../../public/Assets/images/logo_white.svg";
+import logoShort from "../../public/Assets/images/logoShort.svg";
 import HomeIcon from "../icons/HomeIcon";
 import DashIcon from "../icons/DashIcon";
 import PropertyIcon from "../icons/PropertyIcon";
 import LogoutIcon from "../icons/LogoutIcon";
+import HamburgerIcon from "../icons/HamburgerIcon";
+import { useState } from "react";
 
 function Aside() {
+  const [show, setShow] = useState(false);
+  console.log(show);
+  // const ShowHiddenClass = {`hidden lg:block ${show&& "!block" }`}
   return (
     <>
-      <Image src={logoWhite} alt="logo" />
+      <div
+        className={` ${
+          show && "min-w-[300px]"
+        } lg:min-w-[300px] bg-lh-main h-screen px-5 lg:px-8 py-14 overflow-y-auto transition-all duration-300 hidden md:block`}
+      >
+        <Image
+          className="hidden lg:block"
+          width={200}
+          src={logoWhite}
+          alt="logo"
+        />
+        <Image className="lg:hidden" src={logoShort} alt="logo" />
 
-      <NavLink href={"/"}>
-        <HomeIcon /> Home
-      </NavLink>
-      <NavLink href={"/dashboard"}>
-        <DashIcon /> Dashboard
-      </NavLink>
-      <NavLink href={"/dashboard/properties"}>
-        <PropertyIcon /> My Properties
-      </NavLink>
-      <NavLink href={"/logout"}>
-        <LogoutIcon /> Log Out
-      </NavLink>
+        <div className=" space-y-[61px] mt-12 px-5 transition-all duration-300">
+          <button
+            onClick={() => setShow(!show)}
+            className="hidden md:block lg:hidden"
+          >
+            <HamburgerIcon className="fill-white w-6" />
+          </button>
+
+          <hr className="border-[1px] rounded-full lg:hidden w-7" />
+
+          <NavLink href={"/"}>
+            <HomeIcon />{" "}
+            <span className={`hidden lg:block ${show && "!block"}`}>Home</span>
+          </NavLink>
+          <NavLink href={"/dashboard"}>
+            <DashIcon />{" "}
+            <span className={`hidden lg:block ${show && "!block"}`}>
+              Dashboard
+            </span>
+          </NavLink>
+          <NavLink href={"/dashboard/properties"}>
+            <PropertyIcon />
+            <span className={`hidden lg:block ${show && "!block"}`}>
+              My Properties
+            </span>
+          </NavLink>
+          <NavLink href={"/logout"}>
+            <LogoutIcon />{" "}
+            <span className={`hidden lg:block ${show && "!block"}`}>
+              Log Out
+            </span>
+          </NavLink>
+        </div>
+      </div>
     </>
   );
 }
