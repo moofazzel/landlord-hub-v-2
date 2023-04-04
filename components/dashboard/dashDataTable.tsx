@@ -1,7 +1,7 @@
 function DashDataTable() {
   return (
-    <div className="relative overflow-x-auto shadow-md md:rounded-[15px] p-5 bg-white">
-      <table className="w-full text-sm text-left text-gray-500 ">
+    <div className="relative overflow-x-auto shadow-md md:rounded-[15px] p-4 md:p-5 bg-white">
+      <table className="w-full text-sm text-left text-gray-500 overflow-auto">
         <thead className="text-md text-white uppercase font-normal bg-lh-main">
           <tr>
             <th scope="col" className="px-10 py-4 rounded-tl-lg font-medium">

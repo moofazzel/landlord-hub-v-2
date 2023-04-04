@@ -23,8 +23,15 @@ function Dashboard() {
   return (
     <>
       <div className="space-y-[30px]">
-        <DashHeader properties={properties} years={years} months={months} />
-        <DashDataTable />
+        {/* Dashboard Header */}
+        <div className="sticky top-0 navShadow z-50">
+          <DashHeader properties={properties} years={years} months={months} />
+        </div>
+
+        {/* Data table */}
+        <div className=" md:p-8">
+          <DashDataTable />
+        </div>
       </div>
     </>
   );

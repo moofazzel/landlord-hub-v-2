@@ -7,7 +7,7 @@ function UserAvatar() {
         alt=""
       />
 
-      <div>
+      <div className="hidden 2xl:block">
         <h1 className="text-sm font-semibold">Ummy Amrin</h1>
         <span className="text-[13px]">Gulsan, Dhaka</span>
       </div>

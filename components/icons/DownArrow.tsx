@@ -2,8 +2,7 @@ function DownArrow() {
   return (
     <>
       <svg
-        className="inline ml-[10px] "
-        width="15"
+        className="inline md:ml-[10px] w-2.5 "
         height="9"
         viewBox="0 0 15 9"
         fill="none"

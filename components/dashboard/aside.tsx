@@ -10,23 +10,27 @@ import HamburgerIcon from "../icons/HamburgerIcon";
 import { useState } from "react";
 
 function Aside() {
-  const [show, setShow] = useState(false);
-  console.log(show);
   // const ShowHiddenClass = {`hidden lg:block ${show&& "!block" }`}
+  const [show, setShow] = useState(false);
   return (
     <>
       <div
         className={` ${
-          show && "min-w-[300px]"
-        } lg:min-w-[300px] bg-lh-main h-screen px-5 lg:px-8 py-14 overflow-y-auto transition-all duration-300 hidden md:block`}
+          show && "!min-w-[300px]"
+        } min-w-[110px] lg:min-w-[300px] bg-lh-main h-screen px-5 lg:px-8 py-14 overflow-y-auto transition-all duration-300 hidden md:block fixed`}
       >
         <Image
-          className="hidden lg:block"
+          className={`hidden lg:block ${show && "!block"}`}
           width={200}
           src={logoWhite}
           alt="logo"
         />
-        <Image className="lg:hidden" src={logoShort} alt="logo" />
+        <Image
+          width={60}
+          className={`lg:hidden ${show && "!hidden"}`}
+          src={logoShort}
+          alt="logo"
+        />
 
         <div className=" space-y-[61px] mt-12 px-5 transition-all duration-300">
           <button

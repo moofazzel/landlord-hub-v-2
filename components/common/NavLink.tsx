@@ -1,7 +1,6 @@
 import { navLinkProps } from "@/lib/types/types";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { Children, useState } from "react";
 
 function NavLink({ href, children }: navLinkProps) {
   const router = useRouter();

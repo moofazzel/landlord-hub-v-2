@@ -8,11 +8,11 @@ function DashDropdown({ properties, title }: any) {
     <>
       <Listbox value={selected} onChange={setSelected}>
         <div>
-          <div>
+          <div className="text-[10px]">
             {title} <DownArrow />
           </div>
           <div className="relative mt-1">
-            <Listbox.Button className="font-base font-medium rounded-md px-8 py-4 border border-lh-dark2">
+            <Listbox.Button className=" text-xs md:text-base font-medium rounded-md px-4 md:px-8 py-2 md:py-4 border border-lh-dark2">
               <span className="block truncate">{selected.value}</span>
             </Listbox.Button>
 
