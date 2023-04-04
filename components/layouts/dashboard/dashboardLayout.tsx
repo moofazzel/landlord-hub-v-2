@@ -10,7 +10,9 @@ const DashboardLayout = ({ children }: Props) => {
         <Aside />
 
         {/* All dashboard page goes here */}
-        <div>{children}</div>
+        <div className="bg-lh-grey-200 w-full ">
+          <div className="m-10">{children}</div>
+        </div>
       </main>
     </>
   );

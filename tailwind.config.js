@@ -26,8 +26,10 @@ module.exports = {
       colors: {
         "lh-main": "#3555D1",
         "lh-dark": "#00082E",
+        "lh-dark2": "#2E2E2E",
         "lh-grey": "#CCCCCC",
         "lh-grey-100": "#858585",
+        "lh-grey-200": "#ececec",
       },
       fontFamily: {
         rampart: ["Poppins", "sans-serif"],

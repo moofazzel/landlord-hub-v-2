@@ -25,3 +25,11 @@ export type navLinkProps = {
   href: string;
   children: React.ReactNode;
 };
+
+export type Properties = {
+  name: string;
+};
+
+export type PropertiesObject = {
+  properties: object;
+};

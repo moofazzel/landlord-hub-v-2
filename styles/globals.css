@@ -7,6 +7,14 @@ html {
   font-family: "Poppins", sans-serif;
 }
 
+tr:last-child td:first-child {
+  border-bottom-left-radius: 8px;
+}
+
+tr:last-child td:last-child {
+  border-bottom-right-radius: 8px;
+} 
+
 /* Custom css */
 .bgGradient {
   background: linear-gradient(99.81deg, #3555d1 54.03%, #f4f4f4 142.25%);
