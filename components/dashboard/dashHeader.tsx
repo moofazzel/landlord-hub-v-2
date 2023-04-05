@@ -10,7 +10,7 @@ function DashHeader({ properties, years, months }: any) {
           <DashDropdown title={"Select Years"} properties={years} />
           <DashDropdown title={"Select Month"} properties={months} />
         </div>
-        <div className="hidden md:block">
+        <div className="hidden lg:block">
           <UserAvatar />
         </div>
       </header>

@@ -9,7 +9,7 @@ function PropertyNavLink({ href, children }: navLinkProps) {
     <Link
       className={`${
         router.pathname == href && "bg-lh-main"
-      } text-[10px] sm:text-base bg-white font-medium rounded-[5px] px-2 sm:px-3 md:px-5 lg:px-5 xl:px-8 py-1.5 sm:py-2.5 md:py-4 border border-[#a6a6a6]`}
+      } text-[8px] sm:text-base bg-white font-medium rounded-[5px] px-2 sm:px-3 md:px-5 lg:px-5 xl:px-8 py-1.5 sm:py-2.5 md:py-4 border border-[#a6a6a6]`}
       href={href}
     >
       {children}

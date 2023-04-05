@@ -1,10 +1,11 @@
 import BathIcon from "@/components/icons/BathIcon";
 import BedIcon from "@/components/icons/BedIcon";
+import LocationIcon from "@/components/icons/LocationIcon";
 import RentIcon from "@/components/icons/RentIcon";
 
 function PropertyCard() {
   return (
-    <div className="rounded-[20px] bg-white">
+    <div className="rounded-[20px] bg-white mainShadow">
       <img
         className="rounded-t-[20px] w-full"
         width={385}
@@ -12,36 +13,34 @@ function PropertyCard() {
         alt=""
       />
       <div className="py-5 px-5">
-        <h4 className="text-xl lg:text-base xl:text-xl font-semibold text-lh-dark2 mb-5">
-          1010, Dhaka, Al 1236
+        <h4 className="text-xl lg:text-base xl:text-xl font-semibold text-lh-dark2 space-x-3 mb-5">
+          <LocationIcon />
+
+          <span>1010, Dhaka, Al 1236</span>
         </h4>
         <div className="flex justify-between">
           <div>
-            <span className="text-lg lg:text-base xl:text-lg font-medium ">
-              <RentIcon /> Bath
+            <span className="text-base lg:text-base xl:text-base font-medium ">
+              <RentIcon /> Rent
             </span>
-            <div className="text-base lg:text-xs xl:text-base ml-10 lg:ml-0 xl:ml-10">
-              <span>$</span>
-              2500
+            <div className="text-xs lg:text-xs xl:text-base ml-10 lg:ml-0 xl:ml-10">
+              <span className="text-xs">$</span>
+              <span className="text-xs">2500</span>
             </div>
           </div>
 
           <div>
-            <span className="text-lg font-medium ">
-              <BathIcon /> Rent
+            <span className="text-base font-medium ">
+              <BathIcon /> Bath
             </span>
-            <div className="text-base ml-10 lg:ml-0 xl:ml-10">
-              <span>$</span>3
-            </div>
+            <div className="text-xs ml-10 lg:ml-0 xl:ml-10">3</div>
           </div>
 
           <div>
-            <span className="text-lg font-medium ">
+            <span className="text-base font-medium ">
               <BedIcon /> Bed
             </span>
-            <div className="text-base ml-10 lg:ml-0 xl:ml-10">
-              <span>$</span>6
-            </div>
+            <div className="text-xs ml-10 lg:ml-0 xl:ml-10">6</div>
           </div>
         </div>
       </div>

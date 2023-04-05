@@ -8,6 +8,7 @@ import PropertyIcon from "../icons/PropertyIcon";
 import LogoutIcon from "../icons/LogoutIcon";
 import HamburgerIcon from "../icons/HamburgerIcon";
 import { useState } from "react";
+import UserAvatar from "../layouts/dashboard/userAvatar";
 
 function Aside() {
   // const ShowHiddenClass = {`hidden lg:block ${show&& "!block" }`}
@@ -17,7 +18,7 @@ function Aside() {
       <div
         className={` ${
           show && "!min-w-[300px]"
-        } min-w-[110px] lg:min-w-[300px] bg-lh-main h-screen px-5 lg:px-8 py-14 overflow-y-auto transition-all duration-300 hidden md:block fixed`}
+        } w-[110px] lg:min-w-[300px] h-full bg-lh-main px-5 lg:px-8 py-14 overflow-y-auto transition-all duration-300 hidden md:block fixed z-50 mainShadow`}
       >
         <Image
           className={`hidden lg:block ${show && "!block"}`}
@@ -33,14 +34,34 @@ function Aside() {
         />
 
         <div className=" space-y-[61px] mt-12 px-5 transition-all duration-300">
+          {/* Dashboard Show button */}
           <button
             onClick={() => setShow(!show)}
             className="hidden md:block lg:hidden"
           >
-            <HamburgerIcon className="fill-white w-6" />
+            <div className="flex gap-4">
+              <HamburgerIcon className="fill-white w-6 inline" />{" "}
+              <span
+                className={`hidden lg:block text-white font-semibold ${
+                  show && "!block"
+                }`}
+              >
+                Hide Menu
+              </span>
+            </div>
           </button>
 
-          <hr className="border-[1px] rounded-full lg:hidden w-7" />
+          <div className={` hidden w-40 ${show && "!block"}`}>
+            <img
+              className="w-16 h-1/6 rounded-full mx-auto"
+              src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+              alt=""
+            />
+
+            <h1 className="text-xl text-white font-semibold text-center mt-3">
+              Ummy Amrin
+            </h1>
+          </div>
 
           <NavLink href={"/"}>
             <HomeIcon />{" "}

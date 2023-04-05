@@ -24,7 +24,7 @@ function Dashboard() {
     <>
       <div className="space-y-[30px]">
         {/* Dashboard Header */}
-        <div className="sticky top-0 navShadow z-50">
+        <div className="sticky top-0 navShadow z-10">
           <DashHeader properties={properties} years={years} months={months} />
         </div>
 
