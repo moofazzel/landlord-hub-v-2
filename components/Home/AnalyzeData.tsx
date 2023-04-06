@@ -1,16 +1,14 @@
-import clipboard from "../../public/Assets/images/clipboard.png";
-import Image from "next/image";
 import DotIcon from "../icons/DotIcon";
 import Shape2 from "@/public/Assets/shapes/Shape2";
+import AnallyzeLottie from "../common/lotties/AnallyzeLottie";
 
 function AnalyzeData() {
   return (
-    <section className="flex gap-5 flex-col-reverse md:flex-row justify-between items-center my-8 lg:my-10 relative">
+    <section className="flex gap-5 flex-col-reverse md:flex-row justify-between items-center -mt-10 relative">
       {/* shape  */}
-      <div className="absolute -right-24 top-0">
+      <div className="absolute -right-24 -bottom-96 z-50">
         <Shape2 />
       </div>
-
       <div className="flex-1">
         <h2 className="text-[30px] font-semibold text-lh-dark2 mb-12">
           Analyze your data
@@ -35,7 +33,7 @@ function AnalyzeData() {
       </div>
 
       <div className="flex-1">
-        <Image className="ml-auto" src={clipboard} alt="" />
+        <AnallyzeLottie />
       </div>
     </section>
   );

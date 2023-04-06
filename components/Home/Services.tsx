@@ -26,13 +26,12 @@ function Services() {
   ];
   return (
     <>
-      <section className="relative">
+      <section className="relative -mt-7">
         {/* shape  */}
-
-        <div className="absolute -right-[16%] -top-3 ">
+        <div className="absolute -right-24 -top-3 ">
           <Shape2 />
         </div>
-
+        {/* title */}
         <h2 className=" max-w-[820px] mx-auto text-2xl sm:text-3xl md:text-4xl text-center font-bold text-lh-dark2 md:leading-[50px]">
           Easy-to-use Business Tools for Small to Mid-Size Real Estate Investors
         </h2>

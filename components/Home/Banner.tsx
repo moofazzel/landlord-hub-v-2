@@ -1,14 +1,12 @@
-import Image from "next/image";
-
-import heroImage from "../../public/Assets/images/heroImage.png";
 import BlueShape from "@/public/Assets/shapes/BlueShape";
+import BannerLottie from "../common/lotties/BannerLottie";
 
 function Banner() {
   return (
     <>
-      <section className="relative mt-10 md:mt-24 lg:mt-36 mb-16 md:mb-24 lg:mb-48">
+      <section className="relative -mt-16 ">
         {/* shape  */}
-        <div className="absolute -top-60 -left-24 z-0">
+        <div className="absolute -top-60 -left-24 -z-10">
           <BlueShape />
         </div>
         <div className="flex gap-5 flex-col-reverse lg:flex-row justify-between items-center">
@@ -21,16 +19,12 @@ function Banner() {
               Take the stress out of your real estate finances with our simple,
               but powerful, software solution.
             </p>
-            <button className="bgGradient text-white px-11 py-4 rounded-md">
+            <button className="bgGradient text-white px-11 py-4 rounded-md hover:bgGradientHover transition-all duration-500">
               Get Started Ready!
             </button>
           </div>
-          <div className="relative">
-            <Image
-              className="ml-auto max-w-[90%]"
-              src={heroImage}
-              alt="Hero banner image"
-            />
+          <div className="-mr-24">
+            <BannerLottie />
           </div>
         </div>
       </section>

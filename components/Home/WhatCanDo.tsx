@@ -1,8 +1,6 @@
 import DotIcon from "../icons/DotIcon";
-
-import clipboard from "../../public/Assets/images/clipboard.png";
-import Image from "next/image";
 import BlueShape from "@/public/Assets/shapes/BlueShape";
+import ExpensesLottie from "../common/lotties/ExpensesLottie";
 
 function WhatCanDo() {
   return (
@@ -19,8 +17,9 @@ function WhatCanDo() {
       <hr className=" mt-8 mb-5 md:mb-10 w-[50%] mx-auto border-[#4b4b4b]" />
 
       <div className="flex gap-5 flex-col md:flex-row justify-between items-center">
-        <div className="flex-1">
-          <Image className="mr-auto" src={clipboard} alt="" />
+        <div className="flex-1 max-w-[550px]">
+          {/* <Image className="mr-auto" src={clipboard} alt="" /> */}
+          <ExpensesLottie />
         </div>
 
         <div className="flex-1">
