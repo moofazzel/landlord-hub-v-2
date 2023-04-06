@@ -8,26 +8,25 @@ import { useForm, Resolver } from "react-hook-form";
 import signUpImage from "../public/Assets/images/signup.svg";
 
 function signUp() {
-  // const resolver: Resolver<FormValues> = async (values) => {
-  //   return {
-  //     values: values.email ? values : {},
-  //     errors: !values.password
-  //       ? {
-  //           firstName: {
-  //             type: "required",
-  //             message: "This is required.",
-  //           },
-  //         }
-  //       : {},
-  //   };
-  // };
+  const resolver: Resolver<FormValues> = async (values) => {
+    return {
+      values: values.email ? values : {},
+      errors: !values.password
+        ? {
+            firstName: {
+              type: "required",
+              message: "This is required.",
+            },
+          }
+        : {},
+    };
+  };
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm;
-  // } = useForm<FormValues>({ resolver });
+  } = useForm<FormValues>({ resolver });
 
   const onSubmit = (data: any) => {
     console.log(data);
