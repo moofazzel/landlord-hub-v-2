@@ -8,25 +8,26 @@ import { useForm, Resolver } from "react-hook-form";
 import signUpImage from "../public/Assets/images/signup.svg";
 
 function signUp() {
-  const resolver: Resolver<FormValues> = async (values) => {
-    return {
-      values: values.email ? values : {},
-      errors: !values.password
-        ? {
-            firstName: {
-              type: "required",
-              message: "This is required.",
-            },
-          }
-        : {},
-    };
-  };
+  // const resolver: Resolver<FormValues> = async (values) => {
+  //   return {
+  //     values: values.email ? values : {},
+  //     errors: !values.password
+  //       ? {
+  //           firstName: {
+  //             type: "required",
+  //             message: "This is required.",
+  //           },
+  //         }
+  //       : {},
+  //   };
+  // };
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormValues>({ resolver });
+  } = useForm;
+  // } = useForm<FormValues>({ resolver });
 
   const onSubmit = (data: any) => {
     console.log(data);
@@ -106,7 +107,7 @@ function signUp() {
 
             <div className="flex justify-center items-center mb-2">
               <p className="text-gray-500 text-sm text-center">
-                Already have an account?{" "}
+                Already have an account?
                 <Link
                   href="/login"
                   className="text-[#0D0D0D] hover:text-main active:text-blue-700 transition duration-300 font-bold underline"
