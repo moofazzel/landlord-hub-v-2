@@ -7,7 +7,7 @@ import Link from "next/link";
 import { useForm, Resolver } from "react-hook-form";
 import signUpImage from "../public/Assets/images/signup.svg";
 
-function signUp() {
+function SignUp() {
   const resolver: Resolver<FormValues> = async (values) => {
     return {
       values: values.email ? values : {},
@@ -122,4 +122,4 @@ function signUp() {
   );
 }
 
-export default signUp;
+export default SignUp;

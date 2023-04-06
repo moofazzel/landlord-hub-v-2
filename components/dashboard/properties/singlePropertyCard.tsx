@@ -7,6 +7,7 @@ import RentIcon from "@/components/icons/RentIcon";
 import VerticalDots from "@/components/icons/VerticalDots";
 import { SinglePropertiesCardValue } from "@/lib/types/types";
 import { Menu, Transition } from "@headlessui/react";
+import Image from "next/image";
 import { Fragment } from "react";
 
 function SinglePropertyCard({
@@ -22,7 +23,11 @@ function SinglePropertyCard({
   return (
     <>
       <div className="rounded-[20px] bg-white mainShadow mt-3">
-        <img className="rounded-t-[20px] sm:w-[80%] mx-auto" src={img} alt="" />
+        <Image
+          className="rounded-t-[20px] sm:w-[80%] mx-auto"
+          src={img}
+          alt=""
+        />
         <div className="p-5">
           <div className=" flex justify-between  mb-5">
             <div
