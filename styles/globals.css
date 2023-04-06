@@ -3,6 +3,10 @@
 @tailwind components;
 @tailwind utilities;
 
+*{
+  /* border: 2px solid red; */
+}
+
 html {
   font-family: "Poppins", sans-serif;
 }

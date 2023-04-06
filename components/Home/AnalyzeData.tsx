@@ -6,7 +6,7 @@ function AnalyzeData() {
   return (
     <section className="flex gap-5 flex-col-reverse md:flex-row justify-between items-center -mt-10 relative">
       {/* shape  */}
-      <div className="absolute -right-24 -bottom-96 z-50">
+      <div className="absolute -right-[0px] -bottom-96 z-50">
         <Shape2 />
       </div>
       <div className="flex-1">
@@ -32,9 +32,7 @@ function AnalyzeData() {
         </ul>
       </div>
 
-      <div className="flex-1">
-        <AnallyzeLottie />
-      </div>
+      <div className="flex-1">{/* <AnallyzeLottie /> */}</div>
     </section>
   );
 }

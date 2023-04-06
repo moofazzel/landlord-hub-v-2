@@ -28,7 +28,7 @@ function Services() {
     <>
       <section className="relative -mt-7">
         {/* shape  */}
-        <div className="absolute -right-24 -top-3 ">
+        <div className="absolute -right-[0px] -top-3 ">
           <Shape2 />
         </div>
         {/* title */}

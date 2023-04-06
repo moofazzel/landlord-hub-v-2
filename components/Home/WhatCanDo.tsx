@@ -6,7 +6,7 @@ function WhatCanDo() {
   return (
     <section className="mt-20 lg:mt-[120px] relative">
       {/* shape  */}
-      <div className="absolute top-96 -left-40">
+      <div className="absolute top-96 -left-[0px]">
         <BlueShape />
       </div>
 

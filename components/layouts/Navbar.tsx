@@ -9,7 +9,7 @@ function Navbar() {
   const [show, setShow] = useState(false);
   return (
     <>
-      <header className="bg-white navShadow py-2.5 z-10">
+      <header className="bg-white navShadow py-2.5 z-50 relative">
         <div className="lg:container px-5 lg:px-0 flex items-center justify-between">
           <button className="md:hidden" onClick={() => setShow(!show)}>
             <HamburgerIcon className="" />
@@ -22,7 +22,7 @@ function Navbar() {
           <nav className="space-x-12 hidden md:block">
             <Link href={"/dashboard"}>Dashboard</Link>
             <Link
-              className="bgGradient text-white px-11 py-4 rounded-md"
+              className="bgGradient text-white px-11 py-4 rounded-md hover:bgGradientHover"
               href={"/login"}
             >
               Login

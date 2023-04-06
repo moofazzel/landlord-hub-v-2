@@ -6,7 +6,7 @@ function Banner() {
     <>
       <section className="relative -mt-16 ">
         {/* shape  */}
-        <div className="absolute -top-60 -left-24 -z-10">
+        <div className="absolute -top-60 -left-[90px] -z-10">
           <BlueShape />
         </div>
         <div className="flex gap-5 flex-col-reverse lg:flex-row justify-between items-center">
@@ -23,7 +23,7 @@ function Banner() {
               Get Started Ready!
             </button>
           </div>
-          <div className="-mr-24">
+          <div className="-mr-[90px] -z-10">
             <BannerLottie />
           </div>
         </div>
