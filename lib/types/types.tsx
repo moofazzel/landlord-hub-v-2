@@ -1,3 +1,5 @@
+import { FunctionDeclaration } from "typescript";
+
 export type Props = {
   children: React.ReactNode;
 };
@@ -32,4 +34,21 @@ export type Properties = {
 
 export type PropertiesObject = {
   properties: object;
+};
+
+export type PropertiesCardValue = {
+  img: string;
+  location: string;
+  rent: number;
+  bath: number;
+  bed: number;
+};
+
+export type SinglePropertiesCardValue = {
+  img: string;
+  location: string;
+  rent: number;
+  bath: number;
+  bed: number;
+  setIsOpen: boolean;
 };

@@ -11,7 +11,6 @@ import { useState } from "react";
 import UserAvatar from "../layouts/dashboard/userAvatar";
 
 function Aside() {
-  // const ShowHiddenClass = {`hidden lg:block ${show&& "!block" }`}
   const [show, setShow] = useState(false);
   return (
     <>

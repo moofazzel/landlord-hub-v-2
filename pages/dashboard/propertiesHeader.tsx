@@ -18,8 +18,8 @@ function PropertiesHeader() {
         <PropertyNavLink href="#">{"Under\u00A0Repair"}</PropertyNavLink>
         <PropertyNavLink href="#">{"Archived"}</PropertyNavLink>
         {/* add Property button */}
-        <button className="  bg-lh-main font-medium rounded-[5px] px-4  py-3.5 border border-[#a6a6a6] hidden md:block ">
-          <PlusIcon />
+        <button className="  bg-lh-main font-medium rounded-[5px] px-4  py-3.5 border border-[#a6a6a6] hidden md:block group">
+          <PlusIcon className="w-5 h-5 group-hover:scale-125 transition-all duration-200" />
         </button>
       </nav>
       <div className="hidden lg:block">

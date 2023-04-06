@@ -10,9 +10,10 @@ function Navbar() {
   return (
     <>
       <header className="bg-white navShadow py-2.5">
-        <div className="max-w-[1536px] px-3 flex items-center justify-between">
-          <button onClick={() => setShow(!show)}>
-            <HamburgerIcon className="md:hidden" />
+        {/* TODO: Change css  */}
+        <div className="max-w-[1536px]f mx-autof container px-3 flex items-center justify-between">
+          <button className="md:hidden" onClick={() => setShow(!show)}>
+            <HamburgerIcon className="" />
           </button>
           <Image
             className="mx-auto md:mx-0 w-[180px] md:w-[200px] "

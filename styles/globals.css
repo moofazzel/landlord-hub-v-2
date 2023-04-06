@@ -7,6 +7,10 @@ html {
   font-family: "Poppins", sans-serif;
 }
 
+th, td{
+  padding:24px 0;
+}
+
 tr:last-child td:first-child {
   border-bottom-left-radius: 8px;
 }
@@ -20,13 +24,18 @@ tr:last-child td:last-child {
   background: linear-gradient(99.81deg, #3555d1 54.03%, #f4f4f4 142.25%);
 }
 
+/* services section */
+.bgIconGradient{
+  background: linear-gradient(102.47deg, #3555D1 0%, #F4F4F4 130.26%);
+}
+
 @layer components {
   .navShadow {
     box-shadow: 0px 4px 20px rgba(53, 85, 209, 0.1);
   }
 
   .mainShadow {
-    box-shadow: 0px 15px 20px rgba(69, 99, 213, 0.2);
+  box-shadow: 0px 15px 30px rgba(53, 85, 209, 0.2);
   }
 
   .input {
