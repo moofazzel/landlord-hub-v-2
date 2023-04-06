@@ -3,6 +3,8 @@ import PropertiesHeader from "../propertiesHeader";
 import PropertyCard from "@/components/dashboard/properties/propertyCard";
 import Link from "next/link";
 
+import house from "../../../public/Assets/images/housejpg.jpg";
+
 function Properties() {
   const properties = [1, 2, 3, 4, 5, 6];
   return (
@@ -17,7 +19,7 @@ function Properties() {
         {properties.map((property, i) => (
           <Link href={"/dashboard/properties/1"} key={i}>
             <PropertyCard
-              img={"https://wallpapercave.com/wp/wp2124436.jpg"}
+              img={house}
               location={"1010, Dhaka, Al 1236"}
               rent={2500}
               bath={3}

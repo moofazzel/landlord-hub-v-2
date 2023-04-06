@@ -2,15 +2,21 @@ import DotIcon from "../icons/DotIcon";
 
 import clipboard from "../../public/Assets/images/clipboard.png";
 import Image from "next/image";
+import BlueShape from "@/public/Assets/shapes/BlueShape";
 
 function WhatCanDo() {
   return (
-    <section className="mt-20 lg:mt-[120px]">
-      <h2 className=" max-w-[540px] mx-auto text-lg sm:text-2xl md:text-3xl lg:text-4xl text-center font-bold text-lh-dark2 md:leading-[50px]">
+    <section className="mt-20 lg:mt-[120px] relative">
+      {/* shape  */}
+      <div className="absolute top-96 -left-40">
+        <BlueShape />
+      </div>
+
+      <h2 className=" max-w-[540px] mx-auto text-2xl sm:text-3xl md:text-4xl text-center font-bold text-lh-dark2 md:leading-[50px]">
         What can Landlord Hub do for you?
       </h2>
 
-      <hr className=" mt-6 lg:mb-10 w-[50%] mx-auto border-[#4b4b4b]" />
+      <hr className=" mt-8 mb-5 md:mb-10 w-[50%] mx-auto border-[#4b4b4b]" />
 
       <div className="flex gap-5 flex-col md:flex-row justify-between items-center">
         <div className="flex-1">

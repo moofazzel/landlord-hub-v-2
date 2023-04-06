@@ -3,6 +3,7 @@ import SinglePropertyTable from "@/components/dashboard/properties/singlePropert
 import DashboardLayout from "@/components/layouts/dashboard/dashboardLayout";
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
+import defaultPropertyImage from "../../../public/Assets/images/defaultPropertyImage.jpg";
 
 function SingleProperty() {
   let [isOpen, setIsOpen] = useState(false);
@@ -22,9 +23,7 @@ function SingleProperty() {
           <div className="max-w-[600px] mx-auto">
             <SinglePropertyCard
               openModal={openModal}
-              img={
-                "https://landlordhub.app/static/media/defaultPropertyImage.153f4d7d31ca65893323.jpg"
-              }
+              img={defaultPropertyImage}
               location={"1010, Dhaka, Al 1236"}
               rent={2500}
               bath={3}

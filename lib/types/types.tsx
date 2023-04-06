@@ -37,7 +37,7 @@ export type PropertiesObject = {
 };
 
 export type PropertiesCardValue = {
-  img: string;
+  img: any;
   location: string;
   rent: number;
   bath: number;

@@ -9,9 +9,8 @@ function Navbar() {
   const [show, setShow] = useState(false);
   return (
     <>
-      <header className="bg-white navShadow py-2.5">
-        {/* TODO: Change css  */}
-        <div className="max-w-[1536px]f mx-autof container px-3 flex items-center justify-between">
+      <header className="bg-white navShadow py-2.5 z-10">
+        <div className="lg:container px-5 lg:px-0 flex items-center justify-between">
           <button className="md:hidden" onClick={() => setShow(!show)}>
             <HamburgerIcon className="" />
           </button>

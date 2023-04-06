@@ -7,6 +7,7 @@ import WhatCanDo from "@/components/Home/WhatCanDo";
 import AnalyzeData from "@/components/Home/AnalyzeData";
 import Banner from "@/components/Home/Banner";
 import Footer from "@/components/Home/Footer";
+import BlueShape from "@/public/Assets/shapes/BlueShape";
 
 const inter = Inter({ subsets: ["latin"] });
 
