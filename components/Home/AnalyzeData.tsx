@@ -28,8 +28,10 @@ function AnalyzeData() {
         </ul>
       </div>
 
-      <div className="flex-1">
-        <AnallyzeLottie />
+      <div className="flex-1 z-10">
+        <div className="overflow-hidden">
+          <AnallyzeLottie />
+        </div>
       </div>
     </section>
   );

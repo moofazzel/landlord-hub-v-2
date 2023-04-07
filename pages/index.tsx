@@ -21,7 +21,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className=" px-5 sm:px-10 lg:px-0">
+      <main className="md:heroPattern px-5 sm:px-10 lg:px-0 z-30">
+        <div className="servicePattern"></div>
         <div className="lg:container">
           {/* Banner */}
           <Banner />

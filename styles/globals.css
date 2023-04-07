@@ -40,14 +40,17 @@ tr:last-child td:last-child {
 @layer components {
 
   .heroPattern {
-      background: url(../public/Assets/shapes/shape.svg) no-repeat;
-      background-position: 0 0;
+      background-image: 
+      url(../public/Assets/shapes/shape.svg), 
+      url(../public/Assets/shapes/shape2.svg),
+      url(../public/Assets/shapes/shape.svg);
+      background-repeat: no-repeat;
+      background-position: 
+        0 0,
+        147% 50%,
+        -7% 104%
     }
 
-  .servicePattern {
-      background: url(../public/Assets/shapes/shape2.svg) no-repeat;
-      background-position: -12%;
-    }
 
   .bgGradientHover {
 background: linear-gradient(200.81deg, #3555D1 54.03%, #F4F4F4 142.25%);

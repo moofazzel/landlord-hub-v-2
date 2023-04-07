@@ -3,16 +3,10 @@ import Lottie from "lottie-react";
 import LottieFile from "./analyze.json";
 
 function AnallyzeLottie() {
-  // const options = {
-  //   animationData: Lottie,
-  //   loop: true,
-  // };
-
-  // const { View } = useLottie(options);
   return (
     <>
       <Lottie
-        // style={{ width: "400px" }}
+        style={{ background: "transparent" }}
         animationData={LottieFile}
         loop={true}
       />
