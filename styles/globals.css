@@ -3,9 +3,6 @@
 @tailwind components;
 @tailwind utilities;
 
-*{
-  /* border: 2px solid red; */
-}
 
 html {
   font-family: "Poppins", sans-serif;
@@ -30,12 +27,23 @@ tr:last-child td:last-child {
 }
 
 
+
 /* services section */
 .bgIconGradient{
   background: linear-gradient(102.47deg, #3555D1 0%, #F4F4F4 130.26%);
 }
 
 @layer components {
+
+  .heroPattern {
+      background: url(../public/Assets/shapes/shape.svg) no-repeat;
+      background-position: 0 0;
+    }
+
+  .servicePattern {
+      background: url(../public/Assets/shapes/shape2.svg) no-repeat;
+      background-position: -12%;
+    }
 
   .bgGradientHover {
 background: linear-gradient(200.81deg, #3555D1 54.03%, #F4F4F4 142.25%);

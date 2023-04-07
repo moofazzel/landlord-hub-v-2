@@ -4,11 +4,7 @@ import AnallyzeLottie from "../common/lotties/AnallyzeLottie";
 
 function AnalyzeData() {
   return (
-    <section className="flex gap-5 flex-col-reverse md:flex-row justify-between items-center -mt-10 relative">
-      {/* shape  */}
-      <div className="absolute -right-[0px] -bottom-96 z-50">
-        <Shape2 />
-      </div>
+    <section className="flex gap-5 flex-col-reverse md:flex-row justify-between items-center mt-10 lg:-mt-10 mb-10 lg:mb-0">
       <div className="flex-1">
         <h2 className="text-[30px] font-semibold text-lh-dark2 mb-12">
           Analyze your data
@@ -32,7 +28,9 @@ function AnalyzeData() {
         </ul>
       </div>
 
-      <div className="flex-1">{/* <AnallyzeLottie /> */}</div>
+      <div className="flex-1">
+        <AnallyzeLottie />
+      </div>
     </section>
   );
 }

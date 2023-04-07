@@ -21,18 +21,20 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="lg:container px-5 sm:px-10 lg:px-0">
-        {/* Banner */}
-        <Banner />
+      <main className=" px-5 sm:px-10 lg:px-0">
+        <div className="lg:container">
+          {/* Banner */}
+          <Banner />
 
-        {/* Services */}
-        <Services />
+          {/* Services */}
+          <Services />
 
-        {/* What can landlord hub do */}
-        <WhatCanDo />
+          {/* What can landlord hub do */}
+          <WhatCanDo />
 
-        {/* Analyze section */}
-        <AnalyzeData />
+          {/* Analyze section */}
+          <AnalyzeData />
+        </div>
       </main>
       <Footer />
     </>

@@ -1,7 +1,6 @@
 import CashflowIcon from "@/components/icons/CashflowIcon";
 import Receipts from "@/components/icons/Receipts";
 import ReportIcon from "../icons/ReportIcon";
-import Shape2 from "@/public/Assets/shapes/Shape2";
 
 function Services() {
   const services = [
@@ -26,11 +25,7 @@ function Services() {
   ];
   return (
     <>
-      <section className="relative -mt-7">
-        {/* shape  */}
-        <div className="absolute -right-[0px] -top-3 ">
-          <Shape2 />
-        </div>
+      <section className=" mt-14 lg:-mt-7">
         {/* title */}
         <h2 className=" max-w-[820px] mx-auto text-2xl sm:text-3xl md:text-4xl text-center font-bold text-lh-dark2 md:leading-[50px]">
           Easy-to-use Business Tools for Small to Mid-Size Real Estate Investors

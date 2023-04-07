@@ -4,11 +4,7 @@ import BannerLottie from "../common/lotties/BannerLottie";
 function Banner() {
   return (
     <>
-      <section className="relative -mt-16 ">
-        {/* shape  */}
-        <div className="absolute -top-60 -left-[90px] -z-10">
-          <BlueShape />
-        </div>
+      <section className="lg:-mt-16 ">
         <div className="flex gap-5 flex-col-reverse lg:flex-row justify-between items-center">
           <div className="">
             <h1 className="text-5xl md:text-7xl md:text-[80px] font-bold md:leading-[92px]">
@@ -23,7 +19,7 @@ function Banner() {
               Get Started Ready!
             </button>
           </div>
-          <div className="-mr-[90px] -z-10">
+          <div className="lg:-mr-[90px] -z-10">
             <BannerLottie />
           </div>
         </div>
