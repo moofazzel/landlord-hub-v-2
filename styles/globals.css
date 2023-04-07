@@ -4,6 +4,10 @@
 @tailwind utilities;
 
 
+/* *{
+  border: solid red;
+} */
+
 html {
   font-family: "Poppins", sans-serif;
 }

@@ -4,7 +4,7 @@ import BannerLottie from "../common/lotties/BannerLottie";
 function Banner() {
   return (
     <>
-      <section className="lg:-mt-16 ">
+      <section className="lg:-mt-16 overflow-hidden">
         <div className="flex gap-5 flex-col-reverse lg:flex-row justify-between items-center">
           <div className="">
             <h1 className="text-5xl md:text-7xl md:text-[80px] font-bold md:leading-[92px]">
