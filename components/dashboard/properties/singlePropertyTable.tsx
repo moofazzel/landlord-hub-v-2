@@ -9,7 +9,7 @@ function SinglePropertyTable() {
   const [showBtn, setShowBtn] = useState(false);
 
   const propertyButton =
-    "text-xs md:text-lg font-medium border-[1px] border-[#A6A6A6] px-4 md:px-10 py-2 md:py-4 bg-white hover:bg-lh-main hover:text-white shadow-md rounded-[3px] md:rounded-md transition-add duration-200";
+    "text-xs md:text-lg font-medium border-[1px] border-[#A6A6A6] px-4 md:px-4 xl:px-5 py-2 md:py-4 bg-white hover:bg-lh-main hover:text-white shadow-md rounded-[3px] md:rounded-md transition-add duration-200";
 
   //  this handle show and hide item
   const handleShowBtn = (i) => {
@@ -18,7 +18,7 @@ function SinglePropertyTable() {
 
   return (
     <div className="md:mt-[30px]">
-      <div className="relative shadow-md md:rounded-[30px] p-4 md:p-5 bg-white">
+      <div className="relative shadow-md rounded-[10px] md:rounded-[30px] p-3 md:p-4 lg:p-5 mx-3 md:mx-0 bg-white ">
         <div className="flex justify-between">
           <div className="space-x-5 mb-5">
             <button className={propertyButton}>2022</button>
@@ -30,28 +30,31 @@ function SinglePropertyTable() {
         </div>
 
         <div className="overflow-auto">
-          <table className="w-full text-sm text-left text-gray-500 overflow-x-auto">
-            <thead className="text-lg text-white shadow-md uppercase font-normal bg-lh-main">
+          <table className="w-full  lg:w[95%] relative table-auto text-xs xl:text-base text-left text-gray-500 overflow-auto">
+            <thead className=" text-xs xl:text-base text-white shadow-md uppercase font-normal bg-lh-main">
               <tr>
-                <th scope="col" className="px-10 rounded-tl-lg font-medium">
+                <th
+                  scope="col"
+                  className="px-4 xl:px-5 rounded-tl-lg font-medium"
+                >
                   Date
                 </th>
-                <th scope="col" className="px-10 font-medium">
+                <th scope="col" className="px-4 xl:px-5 font-medium">
                   Category
                 </th>
-                <th scope="col" className="px-10 font-medium">
+                <th scope="col" className="px-4 xl:px-5 font-medium">
                   Amount
                 </th>
-                <th scope="col" className="px-10 font-medium">
+                <th scope="col" className="px-4 xl:px-5 font-medium">
                   Type
                 </th>
-                <th scope="col" className="px-10 font-medium">
+                <th scope="col" className="px-4 xl:px-5 font-medium">
                   DESCRIPTION
                 </th>
-                <th scope="col" className="px-10 font-medium">
+                <th scope="col" className="px-4 xl:px-5 font-medium">
                   Recept
                 </th>
-                <th scope="col" className="px-10 font-medium rounded-tr-lg">
+                <th scope="col" className="px-3 font-medium rounded-tr-lg">
                   Actions
                 </th>
               </tr>
@@ -60,28 +63,28 @@ function SinglePropertyTable() {
               {[1, 2, 3].map((tdata, i) => (
                 <tr
                   key={i}
-                  className="  bg-lh-grey-300 border-[#CCCCCC] border-b hover:bg-gray-50"
+                  className=" border-[#CCCCCC] border-b hover:bg-gray-50"
                 >
                   <td
                     scope="row"
-                    className="px-10 font-medium text-gray-900 whitespace-nowrap "
+                    className="px-4 xl:px-5 font-medium text-gray-900 whitespace-nowrap "
                   >
                     2023-03-02
                   </td>
-                  <td className="px-10">Plumbing</td>
-                  <td className="px-10">5000$</td>
-                  <td className="px-10">Expense</td>
-                  <td className="px-10 text-right">
+                  <td className="px-4 xl:px-5">Plumbing</td>
+                  <td className="px-4 xl:px-5">5000$</td>
+                  <td className="px-4 xl:px-5">Expense</td>
+                  <td className="px-4 xl:px-5 text-right">
                     <button>Water Plumbing</button>
                   </td>
-                  <td className="px-10 text-right">
+                  <td className="px-4 xl:px-5 text-right">
                     {i === 1 ? (
                       <button
                         title="View Receipt"
                         className="flex gap-2 items-center text-white bg-lh-main px-4 py-1.5 rounded-md"
                       >
                         <EyeIcon />
-                        <span className="hidden md:block">View Receipt</span>
+                        <span className="hidden lg:block">View Receipt</span>
                       </button>
                     ) : (
                       <button
@@ -89,7 +92,7 @@ function SinglePropertyTable() {
                         className="flex gap-2 items-center text-white bg-red-500 px-5 md:px-6 py-1.5 rounded-md hover:bg-red-600"
                       >
                         <UploadIcon />
-                        <span className="hidden md:block"> Add receipt</span>
+                        <span className="hidden lg:block"> Add receipt</span>
                       </button>
                     )}
                   </td>
@@ -102,11 +105,11 @@ function SinglePropertyTable() {
                       onClick={() => handleShowBtn(i)}
                       className={` ${
                         showBtn === i ? undefined : "animate-pulse"
-                      } flex items-center justify-center space-x-1.5 ml-2.5 mr-2 `}
+                      } flex items-center justify-center space-x-1 lg:space-x-1.5 ml-2.5 mr-2 `}
                     >
-                      <span className="w-1.5 h-1.5 bg-blue-900 rounded-full del"></span>
-                      <span className="w-1.5 h-1.5 bg-blue-800 rounded-full"></span>
-                      <span className="w-1.5 h-1.5 bg-blue-700 rounded-full"></span>
+                      <span className=" w-1 lg:w-1.5  h-1 lg:h-1.5 bg-blue-900 rounded-full del"></span>
+                      <span className=" w-1 lg:w-1.5  h-1 lg:h-1.5 bg-blue-800 rounded-full"></span>
+                      <span className=" w-1 lg:w-1.5  h-1 lg:h-1.5 bg-blue-700 rounded-full"></span>
                     </button>
 
                     <div className="flex gap-1 absolute -top-5 left-8">

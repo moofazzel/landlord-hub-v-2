@@ -18,7 +18,7 @@ function SingleProperty() {
 
   return (
     <>
-      <div className="md:mx-10 ">
+      <div className="mx-5 lg:mx-8 ">
         <div className=" bg-white rounded-[30px] p-6">
           <div className="max-w-[600px] mx-auto">
             <SinglePropertyCard
@@ -32,9 +32,9 @@ function SingleProperty() {
           </div>
         </div>
 
-        <div>
+        <>
           <SinglePropertyTable />
-        </div>
+        </>
       </div>
 
       <Transition appear show={isOpen} as={Fragment}>

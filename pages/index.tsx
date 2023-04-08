@@ -1,6 +1,8 @@
 import Head from "next/head";
 import { Inter } from "next/font/google";
 
+import styles from "../styles/";
+
 import MainLayout from "@/components/layouts/main/mainLayout";
 import Services from "@/components/Home/Services";
 import WhatCanDo from "@/components/Home/WhatCanDo";

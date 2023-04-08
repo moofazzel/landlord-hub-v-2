@@ -3,9 +3,10 @@
 @tailwind components;
 @tailwind utilities;
 
-
-/* *{
+/* 
+*{
   border: solid red;
+
 } */
 
 html {
