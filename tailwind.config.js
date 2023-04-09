@@ -10,15 +10,15 @@ module.exports = {
   ],
   theme: {
     screens: {
-      'sm': '640px',
+      sm: "640px",
 
-      'md': '768px',
+      md: "768px",
 
-      'lg': '1120px',
+      lg: "1120px",
 
-      'xl': '1300px',
+      xl: "1300px",
 
-      '2xl': '1536px',
+      "2xl": "1536px",
     },
     container: {
       center: true,
