@@ -1,3 +1,7 @@
+// react tostify notification
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
+
 import "@/styles/globals.css";
 
 import { Provider } from "react-redux";
@@ -8,11 +12,14 @@ function MyApp({ Component, pageProps }) {
   const Layout = Component.Layout || MainLayout;
 
   return (
-    <Provider store={store}>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </Provider>
+    <>
+      <Provider store={store}>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </Provider>
+      <ToastContainer />
+    </>
   );
 }
 export default MyApp;

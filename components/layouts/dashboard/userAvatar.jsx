@@ -6,6 +6,7 @@ import LogoutButton from "@/components/common/LogoutButton";
 import { useSelector } from "react-redux";
 import { selectUser } from "@/features/userSlice";
 import avatar from "../../../public/Assets/images/avatar.png";
+import Link from "next/link";
 
 function UserAvatar() {
   const user = useSelector(selectUser);
@@ -43,6 +44,14 @@ function UserAvatar() {
                   </h3>
                   <hr />
                 </>
+              </Menu.Item>
+              <Menu.Item>
+                <Link
+                  href={"/dashboard/userprofile"}
+                  className=" block text-base px-4 py-2 my-2 rounded-md text-left hover:bgGradient hover:text-white"
+                >
+                  Profile
+                </Link>
               </Menu.Item>
               <Menu.Item>
                 <span className="block text-base px-4 py-2 my-2 rounded-md text-left hover:bg-red-200">

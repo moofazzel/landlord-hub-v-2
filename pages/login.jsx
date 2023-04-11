@@ -7,7 +7,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { useForm, Resolver } from "react-hook-form";
 import loginImage from "../public/Assets/images/login.svg";
-import { GoogleSignUp } from "@/components/common/GoogleSignIn";
+import GoogleSignInBtn, {
+  GoogleSignUp,
+} from "@/components/common/GoogleSignIn";
 import { auth, signInWithEmailAndPassword } from "../firebase/firebase.config";
 import { login } from "@/features/userSlice";
 import { useRouter } from "next/router";
@@ -32,17 +34,11 @@ function Login() {
         //     photoUrl: userAuth.user.photoURL,
         //   })
         // );
-        userAuth && router.push("/");
+        userAuth && router.push("/dashboard");
       })
       .catch((err) => {
         alert(err);
       });
-  };
-
-  // Google Handler Function
-  const handleGoogleSignUp = () => {
-    // googleSignIn auth component function
-    GoogleSignUp();
   };
 
   return (
@@ -99,12 +95,8 @@ function Login() {
 
               <Divider divide="Or" />
 
-              <button
-                onClick={() => handleGoogleSignUp()}
-                className="flex justify-center input"
-              >
-                <GoogleIcon />
-              </button>
+              {/* Google sign in button */}
+              <GoogleSignInBtn />
             </div>
 
             <div className="flex justify-center items-center mb-2">

@@ -11,48 +11,98 @@ import {
   updateProfile,
 } from "../firebase/firebase.config";
 import { useRouter } from "next/router";
-import { GoogleSignUp } from "@/components/common/GoogleSignIn";
+import GoogleSignInBtn, {
+  GoogleSignUp,
+} from "@/components/common/GoogleSignIn";
+import { useDispatch } from "react-redux";
+import { useState } from "react";
+import { toast } from "react-toastify";
+import { login } from "@/features/userSlice";
 
 function SignUp() {
+  const [error, setError] = useState("fff");
+  const dispatch = useDispatch();
+
   const router = useRouter();
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
-  } = useForm();
+  } = useForm({ mode: "onChange" });
 
   const onSubmit = (data) => {
+    dispatch(
+      login({
+        loading: true,
+      })
+    );
     createUserWithEmailAndPassword(auth, data.email, data.password)
       .then((userAuth) => {
-        // updateProfile(userAuth.user, {
-        //   displayName: data.user,
-        //   photoURL: profilePic,
-        // })
-        //   .then(
-        //     dispatch(
-        //       login({
-        //         email: userAuth.user.email,
-        //         uid: userAuth.user.uid,
-        //         displayName: data.fullName,
-        //         photoUrl: profilePic,
-        //       })
-        //     )
-        //   )
-        //   .catch((error) => {
-        //     console.log("user not updated");
-        //   });
-        router.push("/");
+        updateProfile(userAuth.user, {
+          displayName: data.fullName,
+          // image bb avatar
+          photoURL:
+            "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
+        })
+          .then(
+            dispatch(
+              login({
+                loading: false,
+              })
+            )
+          )
+          .catch((error) => {
+            toast.warn(error, {
+              position: "top-center",
+              autoClose: 1000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "colored",
+            });
+          });
+        router.push("/dashboard");
       })
       .catch((err) => {
-        alert(err);
+        dispatch(
+          login({
+            loading: false,
+          })
+        );
+        toast.error(error, {
+          position: "top-center",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
       });
   };
 
-  // Google sign in function
-  const handleGoogleSignUp = () => {
-    // googleSignIn auth component function
-    GoogleSignUp();
+  // Custom password validation rule
+  const validatePassword = (value) => {
+    if (!/(?=.*[a-z])/.test(value)) {
+      return "Password must contain at least one lowercase letter";
+    }
+    if (!/(?=.*[A-Z])/.test(value)) {
+      console.log(value);
+      return "Password must contain at least one uppercase letter";
+    }
+    if (!/(?=.*\d.*\d)/.test(value)) {
+      return "Password must contain at least two numbers";
+    }
+    if (!/(?=.*[!@#$%^&*])/.test(value)) {
+      return "Password must contain at least one special character";
+    }
+    if (value.length < 8 || value.length > 20) {
+      return "Password must be between 8 and 20 characters";
+    }
+    return true;
   };
 
   return (
@@ -76,42 +126,74 @@ function SignUp() {
             <div className="flex flex-col gap-4 p-4 md:px-8 md:pt-8">
               <div>
                 <input
-                  {...register("fullName", { required: true })}
+                  {...register("fullName", {
+                    required: "Full Name is required",
+                    minLength: {
+                      value: 5,
+                      message: "Full Name must be at least 5 characters long",
+                    },
+                    maxLength: {
+                      value: 100,
+                      message: "Full Name cannot exceed 100 characters",
+                    },
+                    pattern: {
+                      value: /^[a-zA-Z\s]+$/,
+                      message: "Full Name can only contain letters and spaces",
+                    },
+                  })}
                   className={errors.fullName ? "input-error" : "input "}
                   placeholder="Full Name"
                   type="text"
                 />
                 {errors.fullName && (
                   <span className="text-red-400 my-2">
-                    Full Name is required
+                    {errors.fullName.message}
                   </span>
                 )}
               </div>
 
               <div>
                 <input
-                  {...register("email", { required: true })}
+                  {...register("email", {
+                    required: "Email is required", // Add required validation
+                    pattern: {
+                      value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                      message: "Invalid email address",
+                    },
+                  })}
                   className={errors.email ? "input-error" : "input "}
                   placeholder="Email"
                   type="email"
                 />
                 {errors.email && (
-                  <span className="text-red-400 my-2">Email is required</span>
+                  <span className="text-red-400 my-2">
+                    {errors.email.message}
+                  </span>
                 )}
               </div>
 
               <div>
                 <input
-                  // onChange={handlePassword}
-                  {...register("password", { required: true })}
+                  onChange={validatePassword}
+                  {...register("password", {
+                    required: "Password is required",
+                    validate: validatePassword, // Add custom validation rule
+                  })}
                   type="password"
-                  className={errors.email ? "input-error" : "input "}
+                  className={errors.password ? "input-error" : "input "}
                   placeholder="Password"
                 />
-                {errors.password && (
+
+                {/* Display password errors individually */}
+
+                {errors.password?.types?.required && (
                   <span className="text-red-400 my-2">
-                    Password is required
+                    {errors.password.message}
                   </span>
+                )}
+                {errors.password && (
+                  <p className="text-red-400 my-2">{errors.password.message}</p>
+                  // <span className="text-red-400 my-2">{error}</span>
                 )}
               </div>
               <p className="text-right hover:text-black cursor-pointer hover:underline text-gray-500">
@@ -123,12 +205,8 @@ function SignUp() {
 
               <Divider divide="Or Login with social" />
 
-              <button
-                onClick={() => handleGoogleSignUp()}
-                className="flex justify-center input"
-              >
-                <GoogleIcon />
-              </button>
+              {/* Google sign in button */}
+              <GoogleSignInBtn />
             </div>
 
             <div className="flex justify-center items-center mb-2">

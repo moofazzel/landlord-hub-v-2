@@ -36,7 +36,6 @@ tr:last-child td:last-child {
 }
 
 @layer components {
-
     .bgGradient {
         background: linear-gradient(99.81deg, #3555d1 54.03%, #f4f4f4 142.25%);
         box-shadow: 0px 15px 20px rgba(53, 85, 209, 0.2);

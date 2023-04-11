@@ -26,8 +26,8 @@ function PropertiesHeader() {
         <UserAvatar />
       </div>
       {/* add property floating button */}
-      <button className="  bg-lh-main mainShadow font-medium rounded-[5px] px-4  py-3.5 border border-[#a6a6a6] md:hidden fixed right-10 bottom-7">
-        <PlusIcon />
+      <button className=" bg-lh-main mainShadow font-medium rounded-[5px] px-4  py-3.5 border border-[#a6a6a6] md:hidden fixed right-10 bottom-7">
+        <PlusIcon className="w-5 h-5 group-hover:scale-125 transition-all duration-200" />
       </button>
     </header>
   );

@@ -5,7 +5,6 @@ import { useDispatch } from "react-redux";
 function LogoutButton() {
   const dispatch = useDispatch();
   function handleSignOut() {
-    console.log("object");
     dispatch(logout());
     auth.signOut();
   }

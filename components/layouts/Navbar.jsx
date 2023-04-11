@@ -12,9 +12,12 @@ import { selectUser } from "@/features/userSlice";
 import avatar from "../../public/Assets/images/avatar.png";
 
 function Navbar() {
+  // mobile menu icon
   const [show, setShow] = useState(false);
 
   const user = useSelector(selectUser);
+
+  console.log(user);
 
   return (
     <>
