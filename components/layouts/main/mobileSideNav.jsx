@@ -1,8 +1,5 @@
 import Image from "next/image";
 import logoWhite from "../../../public/Assets/images/logo_white.svg";
-import logoShort from "../../../public/Assets/images/logoShort.svg";
-import { useState } from "react";
-import HamburgerIcon from "@/components/icons/HamburgerIcon";
 import NavLink from "@/components/common/NavLink";
 import HomeIcon from "@/components/icons/HomeIcon";
 import DashIcon from "@/components/icons/DashIcon";
@@ -33,6 +30,7 @@ function MobileSideNav({ show, setShow }) {
             height={200}
             src={logoWhite}
             alt="logo"
+            priority
           />
         </div>
 

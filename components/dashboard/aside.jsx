@@ -31,12 +31,14 @@ function Aside() {
           width={200}
           src={logoWhite}
           alt="logo"
+          priority
         />
         <Image
           width={60}
           className={`lg:hidden ${show && "!hidden"}`}
           src={logoShort}
           alt="logo"
+          priority
         />
 
         <div className=" flex flex-col items-start gap-[61px] mt-12 px-5 transition-all duration-300">

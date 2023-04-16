@@ -1,11 +1,11 @@
 import { Listbox, Transition } from "@headlessui/react";
 import { Fragment, useEffect, useState } from "react";
 import PointerEventIcon from "../icons/PointerEventIcon";
-import CheckIcon from "../icons/Checkicon";
 import { useCreatePropertyMutation } from "@/features/api/apiSlice";
 import { useSelector } from "react-redux";
 import { selectUser } from "@/features/userSlice";
 import { toast } from "react-toastify";
+import CheckIcon from "../icons/CheckIcon";
 
 const people = [
   { name: "Wade Cooper" },
