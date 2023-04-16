@@ -4,15 +4,17 @@ import LocationIcon from "@/components/icons/LocationIcon";
 import RentIcon from "@/components/icons/RentIcon";
 import Image from "next/image";
 
-function PropertyCard({ img, location, rent, bath, bed }) {
+function PropertyCard({ img, street, city, state, zip, rent, bath, bed }) {
   return (
-    <div className="rounded-[15px] bg-white mainShadow">
+    <div className="h-full rounded-[15px] bg-white mainShadow">
       <Image className="rounded-t-[15px] w-full" width={385} src={img} alt="" />
       <div className="py-5 px-5">
         <h4 className="text-xl lg:text-base xl:text-xl font-semibold text-lh-dark2 space-x-3 mb-5">
           <LocationIcon />
 
-          <span>{location}</span>
+          <span className="text-base font-semibold">
+            {street}, {city}, {state}, {zip}
+          </span>
         </h4>
         <div className="flex justify-between">
           <div>

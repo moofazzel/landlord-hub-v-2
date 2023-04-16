@@ -13,21 +13,24 @@ export async function getUsers(req, res) {
   }
 }
 
+// Save a new user
 //post: http://localhost:3000/api/users
-
 export async function createUser(req, res) {
   try {
-    // const { name, email, password } = req.body;
-    // const user = await User.create({ name, email, password });
+    const formData = req.body;
 
-    console.log(req.body);
-    if (!user)
+    if (!formData)
       return res.status(404).json({ error: "From Data Not Provided...!" });
-    const user = req.body;
-    User.create(user, function (err, data) {
-      return res.status(200).json(data);
-    });
-  } catch (err) {
-    res.status(404).json({ error: "Error While Creating Data" });
+
+    const existUser = await User.findOne({ email: formData.email });
+
+    if (existUser)
+      return res.status(404).json({ error: "User Already Exist...!" });
+
+    const newUser = new User(formData);
+    const savedUser = await newUser.save();
+    res.status(200).json(savedUser);
+  } catch (error) {
+    return res.status(404).json({ error: "Failed to create user" });
   }
 }

@@ -1,10 +1,8 @@
-
-
 function HamburgerIcon({ className }) {
   return (
     <>
       <svg
-        className={className}
+        className="inline"
         width="26"
         // height="14"
         viewBox="0 0 19 14"

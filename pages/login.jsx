@@ -41,6 +41,8 @@ function Login() {
       });
   };
 
+  // Google sign function is in GoogleSignInBtn component
+
   return (
     <>
       <section className="lg:w-[1280px] mx-auto my-20 px-5">

@@ -18,7 +18,7 @@ module.exports = {
 
       xl: "1300px",
 
-      "2xl": "1536px",
+      // "2xl": "1536px",
     },
     container: {
       center: true,

@@ -2,7 +2,7 @@ import PropertyNavLink from "@/components/dashboard/properties/propertyNavLink";
 import PlusIcon from "@/components/icons/PlusIcon";
 import UserAvatar from "@/components/layouts/dashboard/userAvatar";
 
-function PropertiesHeader() {
+function PropertiesHeader({ openModal }) {
   return (
     <header className="flex gap-3 justify-between items-center bg-white md:px-6 lg:px-8 py-2.5 ">
       <nav className="inline-flex items-center gap-2 sm:gap-3 mx-3 md:mx-0 z-10">
@@ -18,7 +18,10 @@ function PropertiesHeader() {
         <PropertyNavLink href="#">{"Under\u00A0Repair"}</PropertyNavLink>
         <PropertyNavLink href="#">{"Archived"}</PropertyNavLink>
         {/* add Property button */}
-        <button className="  bg-lh-main font-medium rounded-[5px] px-4  py-3.5 border border-[#a6a6a6] hidden md:block group">
+        <button
+          onClick={openModal}
+          className="  bg-lh-main font-medium rounded-[5px] px-4  py-3.5 border border-[#a6a6a6] hidden md:block group"
+        >
           <PlusIcon className="w-5 h-5 group-hover:scale-125 transition-all duration-200" />
         </button>
       </nav>
@@ -26,7 +29,10 @@ function PropertiesHeader() {
         <UserAvatar />
       </div>
       {/* add property floating button */}
-      <button className=" bg-lh-main mainShadow font-medium rounded-[5px] px-4  py-3.5 border border-[#a6a6a6] md:hidden fixed right-10 bottom-7">
+      <button
+        onClick={openModal}
+        className=" bg-lh-main mainShadow font-medium rounded-[5px] px-4  py-3.5 border border-[#a6a6a6] md:hidden fixed right-10 bottom-7"
+      >
         <PlusIcon className="w-5 h-5 group-hover:scale-125 transition-all duration-200" />
       </button>
     </header>

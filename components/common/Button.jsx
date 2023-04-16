@@ -1,7 +1,6 @@
 import { useSelector } from "react-redux";
 
-function Button({ title, type }) {
-  const { loading } = useSelector((state) => state.user);
+function Button({ title, type, loading }) {
   return (
     <button
       type={type}

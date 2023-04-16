@@ -8,10 +8,6 @@ import { auth } from "@/firebase/firebase.config";
 import { login, logout, selectUser } from "@/features/userSlice";
 
 const DashboardLayout = ({ children }) => {
-  const router = useRouter();
-  const currentUser = useSelector(selectUser);
-  console.log(currentUser);
-
   // =================== Auth observer ===================
   const dispatch = useDispatch();
   // check at page load if a user is authenticated

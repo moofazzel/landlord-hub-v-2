@@ -72,10 +72,6 @@ function Aside() {
             </h3>
           </div>
 
-          <NavLink href={"/"}>
-            <HomeIcon />{" "}
-            <span className={`hidden lg:block ${show && "!block"}`}>Home</span>
-          </NavLink>
           <NavLink href={"/dashboard"}>
             <DashIcon />{" "}
             <span className={`hidden lg:block ${show && "!block"}`}>

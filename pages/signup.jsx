@@ -1,6 +1,5 @@
 import Button from "@/components/common/Button";
 import Divider from "@/components/common/Divider";
-import GoogleIcon from "@/components/icons/GoogleIcon";
 import Image from "next/image";
 import Link from "next/link";
 import { useForm, Resolver } from "react-hook-form";
@@ -11,17 +10,28 @@ import {
   updateProfile,
 } from "../firebase/firebase.config";
 import { useRouter } from "next/router";
-import GoogleSignInBtn, {
-  GoogleSignUp,
-} from "@/components/common/GoogleSignIn";
-import { useDispatch } from "react-redux";
-import { useState } from "react";
+import GoogleSignInBtn from "@/components/common/GoogleSignIn";
+import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import { login } from "@/features/userSlice";
+import { useSaveUserMutation } from "@/features/api/apiSlice";
 
 function SignUp() {
-  const [error, setError] = useState("fff");
-  const dispatch = useDispatch();
+  const [loading, setLoading] = useState(false);
+  // Save user to DB
+  const [saveUserDB, { isSuccess }] = useSaveUserMutation();
+
+  useEffect(() => {
+    if (isSuccess) {
+      toast.success("User Created", {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: true,
+        progress: undefined,
+        theme: "colored",
+      });
+      router.push("/dashboard");
+    }
+  }, [isSuccess]);
 
   const router = useRouter();
   const {
@@ -31,56 +41,62 @@ function SignUp() {
   } = useForm({ mode: "onChange" });
 
   const onSubmit = (data) => {
-    dispatch(
-      login({
-        loading: true,
-      })
-    );
+    setLoading(true);
+
     createUserWithEmailAndPassword(auth, data.email, data.password)
       .then((userAuth) => {
         updateProfile(userAuth.user, {
           displayName: data.fullName,
-          // image bb avatar
           photoURL:
             "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
         })
-          .then(
-            dispatch(
-              login({
-                loading: false,
-              })
-            )
-          )
+          .then(() => {
+            setLoading(false);
+          })
           .catch((error) => {
+            setLoading(false);
             toast.warn(error, {
               position: "top-center",
-              autoClose: 1000,
+              autoClose: 4000,
+              hideProgressBar: true,
+              progress: undefined,
+              theme: "colored",
+            });
+          });
+
+        const userInfo = {
+          name: data.displayName,
+          email: data.email,
+          avatar:
+            "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
+          role: "user",
+          createdAt: new Date(),
+          method: "register",
+        };
+
+        // Save user to DB
+        saveUserDB(userInfo);
+
+        // router.push("/dashboard");
+      })
+      .catch((err) => {
+        setLoading(false);
+
+        if (err.message === "Firebase: Error (auth/email-already-in-use).") {
+          toast.warning(
+            "The email address is already in use by another account.",
+            {
+              position: "top-center",
+              autoClose: 4000,
               hideProgressBar: false,
               closeOnClick: true,
               pauseOnHover: true,
               draggable: true,
               progress: undefined,
               theme: "colored",
-            });
-          });
-        router.push("/dashboard");
-      })
-      .catch((err) => {
-        dispatch(
-          login({
-            loading: false,
-          })
-        );
-        toast.error(error, {
-          position: "top-center",
-          autoClose: 1000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "colored",
-        });
+            }
+          );
+        }
       });
   };
 
@@ -90,7 +106,6 @@ function SignUp() {
       return "Password must contain at least one lowercase letter";
     }
     if (!/(?=.*[A-Z])/.test(value)) {
-      console.log(value);
       return "Password must contain at least one uppercase letter";
     }
     if (!/(?=.*\d.*\d)/.test(value)) {
@@ -201,7 +216,7 @@ function SignUp() {
               </p>
 
               {/* Form submit button */}
-              <Button type="submit" title="Sign Up" />
+              <Button type="submit" title="Sign Up" loading={loading} />
 
               <Divider divide="Or Login with social" />
 

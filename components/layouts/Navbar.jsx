@@ -17,18 +17,17 @@ function Navbar() {
 
   const user = useSelector(selectUser);
 
-  console.log(user);
-
   return (
     <>
       <header className="bg-white navShadow py-2.5 z-50 relative">
-        <div className="lg:container px-5 lg:px-0 flex items-center justify-between">
-          <Link href={"/"}>
-            <button className="md:hidden" onClick={() => setShow(!show)}>
-              <HamburgerIcon className="" />
-            </button>
+        <div className="flex items-center md:justify-between lg:container px-5 lg:px-0">
+          <button className="md:hidden inline" onClick={() => setShow(!show)}>
+            <HamburgerIcon />
+          </button>
+
+          <Link className="flex-1" href={"/"}>
             <Image
-              className="mx-auto md:mx-0 w-[180px] md:w-[200px] "
+              className="mx-auto md:mx-0 w-[180px] md:w-[200px] place-items-center"
               src={logoBlue}
               alt=""
             />
