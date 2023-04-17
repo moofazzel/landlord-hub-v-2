@@ -39,7 +39,7 @@ function CalculationModal({ closeModal, calculationType, property }) {
         theme: "colored",
       });
     }
-  }, [isSuccess, isError]);
+  }, [isSuccess, isError, closeModal, calculationType]);
 
   const handlePropertySubmit = (e) => {
     e.preventDefault();

@@ -30,7 +30,7 @@ function SinglePropertyTable({ allCalculations, isCalcDataLoading }) {
       (item) => item.date.slice(0, 4) == year
     );
     setCalculations(filterByYear);
-  }, [year, allCalculations]);
+  }, [year, allCalculations,]);
 
   const propertyButton =
     "text-xs md:text-lg font-medium border-[1px] border-[#A6A6A6] px-4 md:px-4 xl:px-5 py-2 md:py-4 bg-white hover:bg-lh-main hover:text-white shadow-md rounded-[3px] md:rounded-md transition-add duration-200";

@@ -50,13 +50,13 @@ function GoogleSignInBtn({ Children }) {
 
           setLoading(false);
 
-          toast.success("Google Log in", {
-            position: "top-center",
-            autoClose: 2000,
-            hideProgressBar: false,
-            progress: undefined,
-            theme: "colored",
-          });
+          // toast.success("Google Log in", {
+          //   position: "top-center",
+          //   autoClose: 2000,
+          //   hideProgressBar: false,
+          //   progress: undefined,
+          //   theme: "colored",
+          // });
           router.push("/dashboard");
         }
       })

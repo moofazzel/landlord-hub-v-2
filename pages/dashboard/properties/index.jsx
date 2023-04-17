@@ -22,6 +22,8 @@ function Properties() {
     setIsOpen(true);
   }
 
+  if (isLoading) return <div>Loading...</div>;
+
   return (
     <>
       {/* Properties Header */}

@@ -60,7 +60,7 @@ function AddPropertyModal({ closeModal }) {
         theme: "colored",
       });
     }
-  }, [isSuccess, isError]);
+  }, [isSuccess, isError, closeModal]);
 
   const handlePropertySubmit = (e) => {
     e.preventDefault();
