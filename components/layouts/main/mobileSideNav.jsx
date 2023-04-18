@@ -10,12 +10,33 @@ import CloseIcon from "@/components/icons/CloseIcon";
 import avatar from "../../../public/Assets/images/avatar.png";
 import { useSelector } from "react-redux";
 import { selectUser } from "@/features/userSlice";
+import { useEffect, useRef } from "react";
 
 function MobileSideNav({ show, setShow }) {
   const user = useSelector(selectUser);
+
+  const ref = useRef();
+
+  useEffect(() => {
+    const checkIfClickedOutside = (e) => {
+      // If the menu is open and the clicked target is not within the menu,
+      // then close the menu
+      if (show && ref.current && !ref.current.contains(e.target)) {
+        setShow(false);
+      }
+    };
+
+    document.addEventListener("mousedown", checkIfClickedOutside);
+
+    return () => {
+      // Cleanup the event listener
+      document.removeEventListener("mousedown", checkIfClickedOutside);
+    };
+  }, [show]);
   return (
     <>
       <div
+        ref={ref}
         className={` ${
           show && "!ml-0"
         } -ml-[100%] w-[75%] sm:w-[45%] h-full bg-lh-main px-5 lg:px-8 py-14 overflow-y-auto transition-all duration-300 fixed top-0 z-50 mainShadow`}
