@@ -7,13 +7,14 @@ import RentIcon from "@/components/icons/RentIcon";
 import VerticalDots from "@/components/icons/VerticalDots";
 import CalculationModal from "@/components/properties/CalculationModal";
 import { useDeletePropertyMutation } from "@/features/api/apiSlice";
-import { Dialog, Menu, Transition } from "@headlessui/react";
+import { Menu, Transition } from "@headlessui/react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { Fragment, useState } from "react";
 
 function SinglePropertyCard({ img, isLoading, property }) {
   const router = useRouter();
+  // Modal state
   let [isOpen, setIsOpen] = useState(false);
   const [calculationType, setCalculationType] = useState("");
 
@@ -21,13 +22,7 @@ function SinglePropertyCard({ img, isLoading, property }) {
   const [deleteProperty, { isLoading: isPropertyDeleting }] =
     useDeletePropertyMutation();
 
-  function closeModal() {
-    setIsOpen(false);
-  }
-
-  function openModal() {
-    setIsOpen(true);
-  }
+  console.log(isOpen);
 
   // Open modal for calculation and set calculation type
   const handleCalculation = (e) => {
@@ -83,7 +78,7 @@ function SinglePropertyCard({ img, isLoading, property }) {
               {/* Upload photo icon */}
               <button
                 type="button"
-                onClick={openModal}
+                onClick={isOpen}
                 title="Upload Photo"
                 className="sm:bg-[#E4EAFF] hover:bg-lh-main sm:py-2 px-1 md:px-3 rounded-md group transition-all duration-200"
               >
@@ -93,7 +88,7 @@ function SinglePropertyCard({ img, isLoading, property }) {
               {/* Edit photo icon */}
               <button
                 type="button"
-                onClick={openModal}
+                onClick={isOpen}
                 title="Edit"
                 className="sm:bg-[#E4EAFF] hover:bg-lh-main sm:py-2 px-1 md:px-3 rounded-md group transition-all duration-200"
               >
@@ -185,44 +180,12 @@ function SinglePropertyCard({ img, isLoading, property }) {
       </div>
 
       {/* Add Calculation(Payment and Expense) Modal */}
-      <Transition appear show={isOpen} as={Fragment}>
-        <Dialog as="div" className="relative z-50" onClose={openModal}>
-          <Transition.Child
-            as={Fragment}
-            enter="ease-out duration-300"
-            enterFrom="opacity-0"
-            enterTo="opacity-100"
-            leave="ease-in duration-200"
-            leaveFrom="opacity-100"
-            leaveTo="opacity-0"
-          >
-            <div className="fixed inset-0 bg-black bg-opacity-25" />
-          </Transition.Child>
-
-          <div className="fixed inset-0 overflow-y-auto">
-            <div className="flex min-h-full items-center justify-center p-4 text-center">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 scale-95"
-                enterTo="opacity-100 scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 scale-100"
-                leaveTo="opacity-0 scale-95"
-              >
-                <Dialog.Panel className="w-full max-w-md transform overflow-hiddenf rounded-[20px] bg-white p-6 text-left align-middle shadow-xl transition-all">
-                  {/* Calculation / payment / expense modal component */}
-                  <CalculationModal
-                    calculationType={calculationType}
-                    closeModal={closeModal}
-                    property={property}
-                  />
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition>
+      <CalculationModal
+        property={property}
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+        calculationType={calculationType}
+      />
     </>
   );
 }

@@ -18,6 +18,9 @@ function SingleProperty() {
   // Get All Calculations by property ID
   const { data: allCalculations, isLoading: isCalcDataLoading } =
     useGetCalculationsQuery(propertyId);
+
+  console.log(allCalculations);
+
   return (
     <>
       <div className="mx-5 lg:mx-8 ">

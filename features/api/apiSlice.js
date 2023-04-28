@@ -18,8 +18,8 @@ export const userApi = createApi({
 
     // Get all Properties
     getProperties: builder.query({
-      query: () => ({
-        url: "/property",
+      query: (email) => ({
+        url: `/properties/${email}`,
       }),
       providesTags: ["Property"],
     }),
@@ -82,6 +82,15 @@ export const userApi = createApi({
       invalidatesTags: ["Property"],
     }),
 
+    // Delete a property calculation by id
+    deletePropertyCollection: builder.mutation({
+      query: (id) => ({
+        url: `/calculations/${id}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["Calculation"],
+    }),
+
     // Save a new calculation(Expense and payment) to a property
     createCalculation: builder.mutation({
       query: (data) => ({
@@ -108,4 +117,5 @@ export const {
 
   // Delete requests
   useDeletePropertyMutation,
+  useDeletePropertyCollectionMutation,
 } = userApi;

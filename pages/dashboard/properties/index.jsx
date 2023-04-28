@@ -8,11 +8,15 @@ import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
 import AddPropertyModal from "@/components/properties/AddPropertyModal";
 import { useGetPropertiesQuery } from "@/features/api/apiSlice";
+import { useSelector } from "react-redux";
+import { selectUser } from "@/features/userSlice";
 
 function Properties() {
   let [isOpen, setIsOpen] = useState(false);
 
-  const { data: properties, isLoading } = useGetPropertiesQuery();
+  const user = useSelector(selectUser);
+
+  const { data: properties, isLoading } = useGetPropertiesQuery(user?.email);
 
   function closeModal() {
     setIsOpen(false);

@@ -6,6 +6,7 @@ export default async function handler(req, res) {
     res.status(405).json({ error: "Error While Connecting to Database" })
   );
 
+  // when req.query.singleProperty is property ID
   // get a single property
   if (req.method === "GET") {
     try {

@@ -3,13 +3,28 @@ import PencilIcon from "@/components/icons/PencileIcon";
 import ReplaceIcon from "@/components/icons/ReplaceIcon";
 import TrashIcon from "@/components/icons/TrashIcon";
 import UploadIcon from "@/components/icons/UploadIcon";
-import { useGetCalculationsQuery } from "@/features/api/apiSlice";
+import CalculationEditModal from "@/components/properties/CalculationEditModal";
+import CalculationModal from "@/components/properties/CalculationModal";
+import {
+  useDeletePropertyCollectionMutation,
+  useGetCalculationsQuery,
+} from "@/features/api/apiSlice";
 import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 function SinglePropertyTable({ allCalculations, isCalcDataLoading }) {
   const [showBtn, setShowBtn] = useState(false);
   const [year, setYear] = useState(new Date().getFullYear());
   const [calculations, setCalculations] = useState([]);
+
+  // Modal state for Open/Close calculation edit modal
+  const [isEditOpen, setIsEditOpen] = useState(false);
+
+  // Delete property calculation mutation hook
+  const [
+    deletePropertyCalculation,
+    { isLoading: isPropertyCalculationDeleting },
+  ] = useDeletePropertyCollectionMutation();
 
   // Function to get all unique years from array of objects
   const getAllYears = (dataArray) => {
@@ -30,7 +45,7 @@ function SinglePropertyTable({ allCalculations, isCalcDataLoading }) {
       (item) => item.date.slice(0, 4) == year
     );
     setCalculations(filterByYear);
-  }, [year, allCalculations,]);
+  }, [year, allCalculations]);
 
   const propertyButton =
     "text-xs md:text-lg font-medium border-[1px] border-[#A6A6A6] px-4 md:px-4 xl:px-5 py-2 md:py-4 bg-white hover:bg-lh-main hover:text-white shadow-md rounded-[3px] md:rounded-md transition-add duration-200";
@@ -39,7 +54,17 @@ function SinglePropertyTable({ allCalculations, isCalcDataLoading }) {
   const handleShowBtn = (i) => {
     i === showBtn ? setShowBtn(false) : setShowBtn(i);
   };
-  console.log(calculations);
+
+  // Delete property calculation
+  const handleDeletePropertyCalculation = (id) => {
+    // Delete property by ID
+    deletePropertyCalculation(id).then((result) => {
+      if (result.error) {
+        return toast.error(result.error.data.error);
+      }
+      toast.success("Successfully Deleted Property Data ");
+    });
+  };
 
   return (
     <>
@@ -184,6 +209,7 @@ function SinglePropertyTable({ allCalculations, isCalcDataLoading }) {
                             <div className="flex gap-1 absolute -top-5 left-1">
                               {/* Edit Button */}
                               <button
+                                onClick={() => setIsEditOpen(true)}
                                 title="Edit"
                                 className={` border-none text-white bg-blue-900 transition-all duration-150  p-2 rounded hover:bg-blue-800  shadow-md
                         ${
@@ -209,6 +235,9 @@ function SinglePropertyTable({ allCalculations, isCalcDataLoading }) {
 
                               {/* Delete Button */}
                               <button
+                                onClick={() =>
+                                  handleDeletePropertyCalculation(calc?._id)
+                                }
                                 title="Delete"
                                 className={` ${
                                   showBtn === calc?._id
@@ -230,6 +259,13 @@ function SinglePropertyTable({ allCalculations, isCalcDataLoading }) {
           )}
         </div>
       </div>
+
+      {/* Update table Data Modal. It will show when click edit button from table  */}
+
+      <CalculationEditModal
+        isEditOpen={isEditOpen}
+        setIsEditOpen={setIsEditOpen}
+      />
     </>
   );
 }
